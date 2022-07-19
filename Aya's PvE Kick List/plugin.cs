@@ -51,7 +51,7 @@ namespace AimsharpWow.Modules
                     Spec = Aimsharp.GetSpec(Unit);
                 }
             }
-        }
+        };
         string[] immunes = { "Divine Shield", "Aspect of the Turtle" };
         string[] physical_immunes = { "Blessing of Protection" };
         string[] spell_immunes = { "Nether Ward", "Grounding Totem Effect", "Spell Reflection", "Anti-Magic Shell" };
@@ -83,6 +83,7 @@ namespace AimsharpWow.Modules
         Enemy Target = new Enemy("target");
         Enemy Focus = new Enemy("focus");
         List<Enemy> Enemies = new List<Enemy>();
+         
         public override void Initialize()
         {
             if (authorized)
@@ -130,7 +131,7 @@ namespace AimsharpWow.Modules
                     CCInterrupts.Add("Chaos Nova");
                     CCInterrupts.Add("Fel Eruption");
 					CCInterrupts.Add("Metamorphosis");
-            }
+                }
             }
             if (Class == "Shaman")
             {
@@ -168,6 +169,7 @@ namespace AimsharpWow.Modules
                 {
                     CCInterrupts.Add("Mighty Bash");
 					CCInterrupts.Add("Feral Charge");
+                }
             }
             if (Class == "Warlock")
             {
@@ -338,7 +340,7 @@ namespace AimsharpWow.Modules
             "end\n" +
             "return ShouldKickMO");
             CustomCommands.Add("SaveKicks");
-}
+        }       
         int[] Raid =
         { 
         //Sepulcher of the First Ones 
@@ -645,6 +647,9 @@ namespace AimsharpWow.Modules
         366566, //Burst
 		//Affixes Season 4
         };
+
+        
+    
         int RandomDelay = 0;
         public override bool CombatTick()
         {
