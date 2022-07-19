@@ -111,6 +111,12 @@ namespace AimsharpWow.Modules
             if (Class == "Rogue")
             {
                 Interrupts.Add("Kick");
+				if (UseCC)
+                {
+                    CCInterrupts.Add("Gouge");
+					CCInterrupts.Add("Kidney Shot");
+					CCInterrupts.Add("Blind");
+				}
             }
             if (Class == "Shadow Priest")
             {
@@ -131,7 +137,8 @@ namespace AimsharpWow.Modules
             if (Class == "Paladin")
             {
                 Interrupts.Add("Rebuke");
-                if (UseCC)
+				Interrupts.Add("Avenger's Shield");
+				if (UseCC)
                 {
                     CCInterrupts.Add("Hammer of Justice");
                 }
@@ -139,23 +146,29 @@ namespace AimsharpWow.Modules
             if (Class == "Death Knight")
             {
                 Interrupts.Add("Mind Freeze");
+				Interrupts.Add("Shambling Rush");
                 if (UseCC)
                 {
                     CCInterrupts.Add("Asphyxiate");
                     CCInterrupts.Add("Death Grip");
+					CCInterrupts.Add("Strangulate");
+					CCInterrupts.Add("Gnaw");
                 }
             }
             if (Class == "Guardian Druid")
             {
                 Interrupts.Add("Skull Bash");
+				Interrupts.Add("Solar Beam");
                 if (UseCC)
                 {
                     CCInterrupts.Add("Mighty Bash");
+					CCInterrupts.Add("Feral Charge");
                 }
             }
             if (Class == "Warlock")
             {
                 Interrupts.Add("Spell Lock");
+				Interrupts.Add("Optical Blast");
             }
             if (Class == "Mage")
             {
@@ -173,8 +186,22 @@ namespace AimsharpWow.Modules
             if (Class == "Warrior")
             {
                 Interrupts.Add("Pummel");
+				if (UseCC)
+                {
+                    CCInterrupts.Add("Storm Bolt");
+					CCInterrupts.Add("Intimidating Shout");
+                }
             }
-            foreach (string Interrupt in Interrupts)
+            if (Class == "Demon Hunter")
+            {
+                Interrupts.Add("Disrupt");
+                if (UseCC)
+                {
+                    CCInterrupts.Add("Chaos Nova");
+                    CCInterrupts.Add("Fel Eruption");
+					CCInterrupts.Add(Metamorphosis");
+                }
+            }foreach (string Interrupt in Interrupts)
             {
                 Spellbook.Add(Interrupt);
                 Macros.Add(Interrupt + "focus", "/cast [@focus] " + Interrupt);
@@ -198,18 +225,21 @@ namespace AimsharpWow.Modules
             {
                 Buffs.Add(physical_immune);
             }
-            string SpellsToKickNormRaid = "{360176, 366392, 364030, 360259, 362383, 361913, 350342, 350286, 350283, 351779, 357144, 348428, 352141, 355540, 325590, 337110, 325590, 328254, 333002, 337110}";
-            string SpellsToKickCCRaid = "{365008, 364073}";
+            string SpellsToKickNormRaid = "{360176, 366392, 364030, 360259, 362383, 361913, 350342, 350286, 350283, 351779, 357144, 348428, 352141, 355540, 337110, 328254, 333002, 331550, 334708, 325590, 344776, 337865, 333145, 342288, 325665}";
+
+        };
+            string SpellsToKickCCRaid = "{365008, 364073, 328248}";
             string SpellsToKickNormMplus = "{332707, 332666, 332706, 332612, 332084, 321764, 320008, 332608, 328740, 323064, 332605, 328707, 333875, 334076, 332196, 331379, 332234, 332705, 325700, 326607, 323552, 323538, 325876," +
                                             "338003, 328322, 322938, 324914, 324776, 326046, 340544, 337235, 337251, 337253, 322450, 321828, 322767, 331743, 323057, 335143, 334748, 330784, 324293, 338353, 323190, 327130, 328667," +
                                             "320571, 340210, 328180, 321999, 328094, 328016, 329239, 329917, 327995, 328002,328094, 322358, 328534, 328475, 319654, 322433, 321038, 334653, 335305, 336277, 326952, 326836, 326712," +
                                             "326837, 320861, 321105, 327413, 317936, 317963, 328295, 328137, 328331, 327648, 317959, 327481, 317661, 341902, 330784, 333231, 320300, 320120, 341969, 330703, 342139, 330562, 330810," +
                                             "330868, 341771, 330875, 342675, 323190, 263085, 294526, 330438, 297018, 252057, 252063, 328869, 297310, 330477, 332165, 329930, 294517, 296839, 294165, 330118, 183345, 297024, 258935," +
                                             "277040, 242391, 330573, 326399, 345554, 327461, 330479, 310392, 184381, 334538, 329322, 330755, 330822, 295929, 318995, 167012, 354493, 352215, 304946, 242733, 355888, 355930, 355934," +
-                                            "354297, 356324, 356404, 356407, 355641, 353835, 347775, 347903, 350922, 357188, 354297, 355225, 355234, 357284, 357260, 351119, 352347, 356843, 355737, 358967, 366566}";
+                                            "354297, 356324, 356404, 356407, 355641, 353835, 347775, 347903, 350922, 357188, 354297, 355225, 355234, 357284, 357260, 351119, 352347, 356843, 355737, 358967, 366566, 300764, 300650," +
+                                            "300171, 299588, 300087, 300414, 300514, 300436, 301689, 301088, 293729, 228255, 228239, 228025, 227987, 228011, 228019, 227420, 227543, 227341, 227917, 232115, 228280, 228277, 226316," +
+                                            "228625, 227823, 227800, 227545, 227616, 227542, 228606, 229307, 227628, 227592, 227615, 229714, 229083, 230084, 166335, 165122, 178155}";
             string SpellsToKickCCMplus = "{332329, 332671, 332156, 334664, 326450, 325701, 331743, 322569, 324987, 325021, 320822, 321807, 321780, 320822, 334747, 338022, 328400, 328177, 336451, 328429, 328338, 329163, 321935, 324609," +
-                                            "330586, 333540, 330532, 330694, 295985, 335528, 330822, 304254, 332181, 297966, 358328, 241687, 355915, 356031, 355057, 355132}";
-
+                                            "330586, 333540, 330532, 330694, 295985, 335528, 330822, 304254, 332181, 297966, 358328, 241687, 355915, 356031, 355057, 355132, 322169, 228279, 166398}";
 
 
             string InRangeItem = "0";
@@ -342,7 +372,20 @@ namespace AimsharpWow.Modules
         325590, //Scorful Blast 
         328254, //Shattering Ruby 
       	333002, //Vulgar Brand 
-        337110, //Dreadbolt Volley 
+        337110, //Dreadbolt Volley
+		//Castle Nathria
+		333002, //Vulgar Brand
+		331550, //Condemn
+		337110, //Dreadbolt Volley
+		334708, //Deathly Roar (CC to interrupt)
+		325590, //Scornful Blast
+		328248, //Door of Shadows (CC to interrupt)
+		328254, //Shattering Ruby
+		325665, //Soul Infusion
+		344776, //Vengeful Wail
+		337865, //Unleashed Pyroclasm
+		333145, //Return to Stone
+		342288, //Sins and Suffering
         };
         int[] MythicPlus =
         { 
@@ -447,7 +490,7 @@ namespace AimsharpWow.Modules
         324609, //Animate Weapon (CC to interrupt) 
         320861, //Drain Essence 
         321105, //Sap Lifeblood 
-        //Growing Mistrust (CC to interrupt) 
+        322169, //Growing Mistrust (CC to interrupt) 
         //Spires of Ascension  
         327413, //Rebellious Fist 
         317936, //Forsworn Doctrine 
@@ -500,8 +543,6 @@ namespace AimsharpWow.Modules
         183345, //Shadow Bolt 
         297024, //Soul Echo 
         258935, //Inner Flames 
-        329423, //Inner Flames 2
-        258938, //Inner Flames 3
         277040, //Soul of Mist 
         242391, //Terror 
         330573, //Bounty of The Forest 
@@ -554,12 +595,63 @@ namespace AimsharpWow.Modules
         351119, //Shuriken Blitz 
         352347, //Valorous Bolt 
         355132, //Invigorating Fish Stick (CC to interrupt) 
-        356843, //Brackish Bolt 
+        356843, //Brackish Bolt
+		//Operation Mechagon: Junkyard & Workshop
+		300764, //Slimebolt
+		300650, //Suffocating Smog
+		300171, //Repair Protocol
+		299588, //Overclock
+		300087, //Repair
+		300414, //Enrage
+		300514, //Stoneskin
+		300436, //Grasping Hex
+		301689, //Charged Coil
+		301088, //Detonate
+		293729, //Tune-Up
+		//Return to Karazhan: Lower
+		228255, //Soul Leech
+		228239, //Terrifying Wail
+		228025, //Heat Wave
+		227987, //Dinner Bell
+		228011, //Soup Spray
+		228019, //Leftovers
+		227420, //Bubble Blast
+		227543, //Dreary Bolt
+		227341, //Flashy Bolt
+		227917, //Poetry Slam
+		232115, //Firelands Portal
+		228279, //Shadow Rejuvenation (CC to interrupt)
+		228280, //Oath of Fealty
+		228277, //Shackles of Servitude
+		226316, //Shadow Bolt Volley
+		228625, //Banshee Wail
+		227823, //Holy Wrath
+		227800, //Holy Shock
+		227545, //Mana Drain
+		227616, //Empowered Arms
+		227542, //Smite
+		228606, //Healing Touch
+		229307, //Reverberating Shadows
+		//Return to Karazhan: Upper
+		228239, //Terrifying Wail
+		227628, //Piercing Missiles
+		227592, //Frostbite
+		227615, //Inferno Bolt
+		229714, //Consume Magic
+		229083, //Burning Blast
+		230084, //Stabilize Rift
+		//Grimrail Depot
+		166398, //Arcane Blitz (CC to interrupt)
+		166335, //Storm Shield
+		//Iron Docks
+		165122, //Blood Bolt
+		178155, //Acid Spit
         //Affixes Season 2 
         355737, //Scorching Blast 
         358967, //Inferno 
         //Affixes Season 3 
-        366566, //Burst 
+        366566, //Burst
+		//Affixes Season 4
         };
         int RandomDelay = 0;
         public override bool CombatTick()
