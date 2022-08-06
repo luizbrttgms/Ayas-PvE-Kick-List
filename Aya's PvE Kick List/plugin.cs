@@ -51,7 +51,7 @@ namespace AimsharpWow.Modules
                     Spec = Aimsharp.GetSpec(Unit);
                 }
             }
-        };
+        }
         string[] immunes = { "Divine Shield", "Aspect of the Turtle" };
         string[] physical_immunes = { "Blessing of Protection" };
         string[] spell_immunes = { "Nether Ward", "Grounding Totem Effect", "Spell Reflection", "Anti-Magic Shell" };
@@ -83,7 +83,6 @@ namespace AimsharpWow.Modules
         Enemy Target = new Enemy("target");
         Enemy Focus = new Enemy("focus");
         List<Enemy> Enemies = new List<Enemy>();
-         
         public override void Initialize()
         {
             if (authorized)
@@ -131,7 +130,7 @@ namespace AimsharpWow.Modules
                     CCInterrupts.Add("Chaos Nova");
                     CCInterrupts.Add("Fel Eruption");
 					CCInterrupts.Add("Metamorphosis");
-                }
+            }
             }
             if (Class == "Shaman")
             {
@@ -169,7 +168,7 @@ namespace AimsharpWow.Modules
                 {
                     CCInterrupts.Add("Mighty Bash");
 					CCInterrupts.Add("Feral Charge");
-                }
+				}
             }
             if (Class == "Warlock")
             {
@@ -233,9 +232,9 @@ namespace AimsharpWow.Modules
                                             "277040, 242391, 330573, 326399, 345554, 327461, 330479, 310392, 184381, 334538, 329322, 330755, 295929, 318995, 167012, 354493, 352215, 304946, 242733, 355888, 355930, 355934," +
                                             "354297, 356324, 356404, 356407, 355641, 353835, 347775, 347903, 350922, 357188, 354297, 355225, 355234, 357284, 357260, 351119, 352347, 356843, 355737, 358967, 366566, 300764, 300650," +
 											"300171, 299588, 300087, 300414, 300514, 300436, 301689, 301088, 293729, 228255, 228239, 228025, 227987, 228011, 228019, 227420, 227543, 227341, 227917, 232115, 228280, 228277, 226316," +
-											"228625, 227823, 227800, 227545, 227616, 227542, 228606, 229307, 228239, 227628, 227592, 227615, 229714, 229083, 230084, 166335, 165122, 178155, 355737, 358967, 366566}";
+											"228625, 227823, 227800, 227545, 227616, 227542, 228606, 229307, 227592, 229714, 229083, 230084, 166335, 165122, 178155, 228254, 228700}";
             string SpellsToKickCCMplus = "{332329, 332671, 332156, 334664, 326450, 325701, 331743, 322569, 324987, 325021, 320822, 321807, 321780, 320822, 334747, 338022, 328400, 328177, 336451, 328429, 328338, 329163, 321935, 324609," +
-                                            "330586, 333540, 330532, 330694, 295985, 335528, 330822, 304254, 332181, 297966, 358328, 241687, 355915, 356031, 355057, 355132, 322169, 228279, 166398}";
+                                            "330586, 333540, 330532, 330694, 295985, 335528, 330822, 304254, 332181, 297966, 358328, 241687, 355915, 356031, 355057, 355132, 322169, 228279, 166398, 293827}";
             string InRangeItem = "0";
             if (Class == "Monk" || Class == "Guardian Druid" || Class == "Death Knight" || Class == "Rogue" || Class == "Demon Hunter" || Class == "Warrior" || Class == "Paladin")
             {
@@ -340,7 +339,7 @@ namespace AimsharpWow.Modules
             "end\n" +
             "return ShouldKickMO");
             CustomCommands.Add("SaveKicks");
-        }       
+}
         int[] Raid =
         { 
         //Sepulcher of the First Ones 
@@ -605,6 +604,9 @@ namespace AimsharpWow.Modules
 		//Return to Karazhan: Lower
 		228255, //Soul Leech
 		228239, //Terrifying Wail
+        228700, //Arcane Barrage
+        227592, //Frost Bite
+        229083, //Burning Blast
 		228025, //Heat Wave
 		227987, //Dinner Bell
 		228011, //Soup Spray
@@ -627,10 +629,17 @@ namespace AimsharpWow.Modules
 		228606, //Healing Touch
 		229307, //Reverberating Shadows
 		//Return to Karazhan: Upper
-		228239, //Terrifying Wail
-		227628, //Piercing Missiles
+        228254, //Soul Leech
+        228239, //Terrifying Wail
+        228700, //Arcane Barrage
+        227592, //Frost Bite
+        229083, //Burning Blast
+        //Operation: Mechagon - Workshop
+        301088, //Detonate
+        293827, //Giga-Wallop (CC to interrupt)
+        227628, //Piercing Missiles
 		227592, //Frostbite
-		227615, //Inferno Bolt
+		//227615, //Inferno Bolt
 		229714, //Consume Magic
 		229083, //Burning Blast
 		230084, //Stabilize Rift
@@ -647,9 +656,6 @@ namespace AimsharpWow.Modules
         366566, //Burst
 		//Affixes Season 4
         };
-
-        
-    
         int RandomDelay = 0;
         public override bool CombatTick()
         {
