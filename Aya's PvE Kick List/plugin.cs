@@ -589,72 +589,51 @@ namespace AimsharpWow.Modules
         352347, //Valorous Bolt 
         355132, //Invigorating Fish Stick (CC to interrupt) 
         356843, //Brackish Bolt
-		//Operation Mechagon: Junkyard & Workshop
-		300764, //Slimebolt
-		300650, //Suffocating Smog
-		300171, //Repair Protocol
-		299588, //Overclock
-		300087, //Repair
-		300414, //Enrage
-		300514, //Stoneskin
-		300436, //Grasping Hex
-		301689, //Charged Coil
-		301088, //Detonate
-		293729, //Tune-Up
-		//Return to Karazhan: Lower
-		228255, //Soul Leech
-		228239, //Terrifying Wail
-        228700, //Arcane Barrage
-        227592, //Frost Bite
-        229083, //Burning Blast
-		228025, //Heat Wave
-		227987, //Dinner Bell
-		228011, //Soup Spray
-		228019, //Leftovers
-		227420, //Bubble Blast
-		227543, //Dreary Bolt
-		227341, //Flashy Bolt
-		227917, //Poetry Slam
-		232115, //Firelands Portal
-		228279, //Shadow Rejuvenation (CC to interrupt)
-		228280, //Oath of Fealty
-		228277, //Shackles of Servitude
-		226316, //Shadow Bolt Volley
-		228625, //Banshee Wail
-		227823, //Holy Wrath
-		227800, //Holy Shock
-		227545, //Mana Drain
-		227616, //Empowered Arms
-		227542, //Smite
-		228606, //Healing Touch
-		229307, //Reverberating Shadows
-		//Return to Karazhan: Upper
+        //Affixes Season 4
+        373747, //Blood Siphon
+        373570, //Hypnosis
+        //Return to Karazhan: Upper
         228254, //Soul Leech
         228239, //Terrifying Wail
         228700, //Arcane Barrage
         227592, //Frost Bite
         229083, //Burning Blast
+        374743, //Fel Fireball        
+        //Return to Karazhan: Lower
+        228025, //Heat Wave
+        227917, //Poetry Slam (CC to interrupt)
+        232115, //Firelands Portal
+        226344, //Shadow Bolt
+        227823, //Holy Wrath
+        227616, //Empowered Arms
+        228603, //Charge (CC to interrupt)
+        241828, //Trampling Stomp (CC to interrupt)
+        228278, //Demoralizing Shout
+        241808, //Shadow bolt Volley
+        227823, //Holy Wrath
+        227800, //Holy Shock
+        228606, //Healing Touch
+        227776, //Magic Magnificent
+        227341, //Flashy Bolt
         //Operation: Mechagon - Workshop
         301088, //Detonate
-        293827, //Giga-Wallop (CC to interrupt)
-        227628, //Piercing Missiles
-		227592, //Frostbite
-		//227615, //Inferno Bolt
-		229714, //Consume Magic
-		229083, //Burning Blast
-		230084, //Stabilize Rift
-		//Grimrail Depot
-		166398, //Arcane Blitz (CC to interrupt)
-		166335, //Storm Shield
-		//Iron Docks
-		165122, //Blood Bolt
-		178155, //Acid Spit
-        //Affixes Season 2 
-        355737, //Scorching Blast 
-        358967, //Inferno 
-        //Affixes Season 3 
-        366566, //Burst
-		//Affixes Season 4
+        293827, //Giga-Wallop (CC to interrupt) 
+        //Operation: Mechagon - Junkyard
+        300436, //Grasping Hex (CC to interrupt)
+        300764, //Slimebolt
+        300777, //Slimewave (CC to interrupt)
+        284219, //Shrink
+        300650, //Suffocating Smog
+        300171, //Repair Protocol
+        300087, //Repair (CC to interrupt)
+        299588, //Overclock
+        300414, //Enrage
+        //Grimriail Depot
+        166335, //Storm Shield
+        163966, //Activating (CC to interrupt)
+        //Iron Docks
+        178154, //Acid Spit
+        165122, //Blood Bolt
         };
         int RandomDelay = 0;
         public override bool CombatTick()
