@@ -144,6 +144,7 @@ namespace AimsharpWow.Modules
             {
                 Interrupts.Add("Rebuke");
                 Interrupts.Add("Avenger's Shield");
+		Interrupts.Add("Hammer of Justice");
 				if (UseCC)
                 {
                     CCInterrupts.Add("Hammer of Justice");
